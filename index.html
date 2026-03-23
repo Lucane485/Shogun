@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de" onmouseenter="passivPlay()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Icons/Favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Icons/Favicon/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/x-icon" href="Icons/Favicon/favicon.ico" />
+    <title>サムライのポートフォリオ</title>
+  </head>
+
+  <body>
+    <div id="msg-box"><span id="msg-box-txt"></span></div>
+
+    <div class="logo">
+      <img
+        src="Icons/samurai-maske.png"
+        alt="👹👹👹"
+        class="logo-img"
+        onclick="linkPlay()"
+        onmouseenter="aktivPlay()"
+        onmouseleave="aktivFinish()"
+      />
+      <span class="logo-txt sho">SHO</span>
+      <span class="logo-txt gun">GUN</span>
+      <div class="aura"></div>
+    </div>
+
+    <script defer>
+      lastSite();
+    </script>
+    <script src="site.js" defer></script>
+    <script src="index.js" defer></script>
+  </body>
+</html>

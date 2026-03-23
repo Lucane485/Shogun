@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="de" onmouseenter="themePlay()" onmouseleave="themeFinish()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="about_me.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Icons/Favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Icons/Favicon/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/x-icon" href="Icons/Favicon/favicon.ico" />
+    <title>サムライのポートフォリオ</title>
+  </head>
+
+  <body>
+    <div class="scl-line"></div>
+    <div id="msg-box"><span id="msg-box-txt"></span></div>
+
+    <header id="header">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <path
+          class="hdr-frg"
+          d="M1000,0 L350,0 L450,150 L300,300 L500,400 L750,550 L1000,450 Z"
+          onmouseenter="(glühenPlay(), (hoverPower = 9))"
+          onmouseleave="(glühenFinish(), (hoverPower = 0))"
+        ></path>
+        <path
+          class="hdr-frg"
+          d="M0,1000 L0,350 L150,450 L100,650 L350,850 L650,1000 Z"
+          onmouseenter="(glühenPlay(), (hoverPower = 9))"
+          onmouseleave="(glühenFinish(), (hoverPower = 0))"
+        ></path>
+      </svg>
+
+      <nav class="hdr-nav">
+        <div class="hdr-logo">
+          <div class="hdr-img" id="meLogo">
+            <img
+              src="Icons/samurai-maske.png"
+              alt="👹👹👹"
+              onmouseenter="(logoAboutMePlay(), (hoverPower = 18))"
+              onmouseleave="(logoAboutMeFinish(), (hoverPower = 0))"
+            />
+          </div>
+          <span class="hdr-name">ABOUT ME</span>
+        </div>
+
+        <span
+          class="item skills"
+          onmouseenter="(exitPlay(), (hoverPower = 18))"
+          onmouseleave="hoverPower = 0"
+          onclick="linkPlayProjects()"
+          >PROJECTE</span
+        >
+        <span
+          class="item projects"
+          onmouseenter="(exitPlay(), (hoverPower = 18))"
+          onmouseleave="hoverPower = 0"
+          onclick="linkPlaySkills()"
+          >Skills</span
+        >
+      </nav>
+
+      <div class="lava-edge top" style="top: 97.5%">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+      <div class="lava-edge top" style="transform: scaleY(-1); height: 40px">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="main-1">
+        <div
+          class="main-txt-1"
+          onmouseenter="hoverPower = 9"
+          onmouseleave="hoverPower = 0"
+        >
+          <h1>Über Mich (Technisch)</h1>
+          <p class="txt">
+            Servus 👋 Ich bin Dennis Staral, aktuell Ende 14 und auf diesem
+            Abschnitt lernst du etwas über mich, meine Persönlichkeit usw. Viel
+            Spaß! Ein paar Technische Daten dürfen natürlich nicht Fehlen. Also
+            zum Mitschreiben: <br />
+            • Dennis Staral, 14 Jahre alt <br />
+            • Geboren in Pforzheim <br />
+            • Gestorben bin ich bisher noch nicht <br />
+            • Bin an der Friedegart-Belusa-Gemeinschaftsschule (FBG) Büchen,
+            Schleswig-Holstein <br />
+            • ... <br />
+            Das Wars eigentlich
+          </p>
+        </div>
+      </div>
+      <div class="main-2">
+        <div
+          class="main-txt-2"
+          onmouseenter="hoverPower = 9"
+          onmouseleave="hoverPower = 0"
+        >
+          <h1>Über Mich (Vorlieben)</h1>
+          <p class="txt">
+            Da bin ich wieder, jz gehen wir weg vom ganzen Technischen Kram
+            hinzu meinen Vorlieben. Es gibt eineges, aber Simples, was ich mag,
+            wie die Farbe Blau und Schwarz (Obwohl Schwarz eigentlich keine
+            Farbe ist 🤷 Ist mir egal). Oder das Lieblingsessen, Sushi mit
+            Stäbchen und Sojasoße ... Ein Wahrer Traum ... jedenfalls für mich.
+            Naja, Ich hab ja net nur Farbe und Essen, ich habe auch noch Hobbies
+            AUßER Zocken, inzwischen eine Seltenheit. <br />
+            • Ich gehe Schwimmen <br />
+            • In ein Schützenverein <br />
+            • Mache Jiu Jitsu (Kampfsportart) <br />
+            • Spiele Klavier (Blockflöte hab ich schon wieder Verlernt... Egal,
+            Klavier Besser) <br />
+            • Zocken, der Standart <br />
+            UUUND <br />
+            • Programmieren! <br />
+            Richtig gehört <br />
+            Was glaubst du, warum ich mich 2 Monate lang an dieses
+            ✨MEISTERWERK✨Gesetzt habe.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <div class="lava-scroll">
+      <svg
+        preserveAspectRatio="none"
+        viewBox="0 0 120 1600"
+        style="height: 100%; width: 100%"
+      >
+        <path id="lava-path-scroll" class="lava-path" d=""></path>
+      </svg>
+    </div>
+
+    <span
+      class="exit"
+      onmouseenter="(exitPlay(), (hoverPower = 18))"
+      onmouseleave="hoverPower = 0"
+      onclick="(linkPlayIndex(), localStorage.removeItem('lastSite'))"
+      >RÜCKZUG!!!</span
+    >
+
+    <footer id="footer">
+      <div class="lava-edge bottom" style="height: 80px">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+      <div class="lava-edge bottom" style="transform: scaleY(-1); bottom: 95%">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+
+      <nav class="ftr-nav">
+        <div>
+          <h1>Navigation</h1>
+
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="
+                ((window.location.href = 'index.html'),
+                  localStorage.removeItem('lastSite'))
+              "
+            >
+              Startsite
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'about_me.html'"
+            >
+              About Me
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'projects.html'"
+            >
+              Projects
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'skills.html'"
+            >
+              Skills
+            </span>
+          </h2>
+        </div>
+        <div>
+          <h1>About Me</h1>
+
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'about_me.html#header'"
+            >
+              #Header
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'about_me.html#main'"
+            >
+              #Main
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'about_me.html#footer'"
+            >
+              #Footer
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'settings.html#about_me'"
+            >
+              #Settings
+            </span>
+          </h2>
+
+          <div class="ftr-name">
+            <h3>Dennis Staral</h3>
+            <h3>2026© Portfolio</h3>
+          </div>
+        </div>
+        <div>
+          <h1>Rechtliches</h1>
+
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html'"
+            >
+              Rechtliches
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#impressum'"
+            >
+              #Impressum
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#data'"
+            >
+              #Datenschutzt
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#credits'"
+            >
+              #Credits
+            </span>
+          </h2>
+        </div>
+      </nav>
+    </footer>
+
+    <script src="audio.js" defer></script>
+    <script src="site.js" defer></script>
+    <script src="about_me.js" defer></script>
+  </body>
+</html>

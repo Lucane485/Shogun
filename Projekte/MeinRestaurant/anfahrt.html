@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contact {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: fixed;
+            padding-left: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 100vw;
+            z-index: 1000;
+        }
+
+        .contact:hover {
+            background-color: cyan;
+        }
+
+        .contact2 {
+            display: flex;
+            background-color: aquamarine;
+            color: blue;
+            width: 100vw;
+        }
+
+        .contact3 {
+            display: flex;
+            background-color: aquamarine;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            width: 100vw;
+            justify-content: center;
+            align-items: end;
+        }
+
+        .img {
+            display: flex;
+            width: 100vw;
+            height: 50vh;
+            object-fit: cover;
+        }
+
+        body {
+            margin: 0;
+        }
+
+
+        a {
+            color: blue;
+            margin-right: 2px;
+        }
+
+        a:hover {
+            color: aqua;
+            background-color: black;
+            margin-right: 2px;
+        }
+
+        li {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contact">
+        <li><a href="#index" onclick="window.location.href='index.html#index'">
+                Unser Restauraunt
+            </a></li>
+
+        <li><a href="#opening-hours" onclick="window.location.href='öffnungszeiten.html#opening-hours'">
+                Öffnungszeiten
+            </a></li>
+
+        <li><a href="#contact" onclick="window.location.href='anfahrt.html#contact'">
+                Anfahrt
+            </a></li>
+
+        <li><a href="#directions" onclick="window.location.href='Kontakt.html#directions'">
+                Kontakt
+            </a></li>
+
+        <li><a href="#imprint" onclick="window.location.href='impressum.html#imprint'">
+                Impressum
+            </a></li>
+
+        <li><a href="#news" onclick="window.location.href='neues.html#news'">
+                Neues
+            </a></li>
+    </div>
+    <div class="contact2">
+        <section id="contact">
+            <h1>Anfahrt</h1>
+            Hier finden Sie eine Wegbeschreibung zu unserem Restaurant.<br>
+            Aus Richtung Kassel auf die A7 bis Autobahn - Dreieck Hannover - Süd fahren, weiter auf die A37 in
+            Richtung Hannover.<br>
+            Die A37 geht in den Messeschnellweg über Gerhard - Lassin - Straße 4. 12345 etz.
+        </section>
+    </div>
+    <img class="img" src="https://cdn.pixabay.com/photo/2022/02/10/05/44/wuzhen-7004638_1280.jpg" alt="">
+    <div class="contact3">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2366.1794229221446!2d10.688845177263786!3d53.625939372371796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b2000b90d817d7%3A0x1670ddb6962ec581!2sQuellenhof%20M%C3%B6lln!5e0!3m2!1sde!2sde!4v1702479997216!5m2!1sde!2sde"
+            width="1000px" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</body>
+
+</html>

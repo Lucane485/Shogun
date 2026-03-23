@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imprint {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: fixed;
+            padding-left: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 100vw;
+            z-index: 1000;
+        }
+
+        .imprint:hover {
+            background-color: cyan;
+        }
+
+        .imprint2 {
+            display: flex;
+            background-color: aquamarine;
+            color: blue;
+            width: 100vw;
+        }
+
+        .imprint3 {
+            display: flex;
+            background-color: aquamarine;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            width: 100vw;
+            justify-content: center;
+            align-items: end;
+        }
+
+        .img {
+            display: flex;
+            width: 100vw;
+            height: 50vh;
+            object-fit: cover;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        a {
+            color: blue;
+            margin-right: 2px;
+        }
+
+        a:hover {
+            color: aqua;
+            background-color: black;
+            margin-right: 2px;
+        }
+
+        li {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imprint">
+        <li><a href="#index" onclick="window.location.href='index.html#index'">
+                Unser Restauraunt
+            </a></li>
+
+        <li><a href="#opening-hours" onclick="window.location.href='öffnungszeiten.html#opening-hours'">
+                Öffnungszeiten
+            </a></li>
+
+        <li><a href="#contact" onclick="window.location.href='anfahrt.html#contact'">
+                Anfahrt
+            </a></li>
+
+        <li><a href="#directions" onclick="window.location.href='Kontakt.html#directions'">
+                Kontakt
+            </a></li>
+
+        <li><a href="#imprint" onclick="window.location.href='impressum.html#imprint'">
+                Impressum
+            </a></li>
+
+        <li><a href="#news" onclick="window.location.href='neues.html#news'">
+                Neues
+            </a></li>
+    </div>
+    <div class="imprint2">
+        <section id="imprint">
+            <h1>Impressum</h1>
+            <h2>Angaben gemäß § 5 TMG:</h2>
+            <p>Larry Hinrichs</p>
+            <p>21514 Büchen</p>
+            <p>Telefon:
+                <a href="www.skype.com/de/">
+                    +49 (0) 8912345678
+                </a>
+            </p>
+            <p>E-Mail:
+                <a href="www.skype.com/de/">
+                    Info@myrestauraunt.de
+                </a>
+            </p>
+            <h2>Umsatzsteuer-ID:</h2>
+            <p>Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz:</p>
+            <p>DE123456789</p>
+            <h2>Haftungsausschluss:</h2>
+            <p>Haftung für Inhalte</p>
+            <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
+                Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7
+                Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8
+                bis
+                10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+                Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
+                hinweisen.
+                Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
+                bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis
+                einer
+                konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir
+                diese
+                Inhalte umgehend entfernen.</p>
+            <p>Haftung für Links</p>
+            <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben.
+                Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
+                verlinkten
+                Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten
+                wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren
+                zum
+                Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten
+                ist
+                jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+                Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+        </section>
+    </div>
+    <img class="img" src="https://cdn.pixabay.com/photo/2022/02/10/05/44/wuzhen-7004638_1280.jpg" alt="">
+    <div class="imprint3">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2366.1794229221446!2d10.688845177263786!3d53.625939372371796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b2000b90d817d7%3A0x1670ddb6962ec581!2sQuellenhof%20M%C3%B6lln!5e0!3m2!1sde!2sde!4v1702479997216!5m2!1sde!2sde"
+            width="1000px" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</body>
+
+</html>

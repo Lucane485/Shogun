@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="de" onmouseenter="themePlay()" onmouseleave="themeFinish()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="projects.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Icons/Favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Icons/Favicon/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/x-icon" href="Icons/Favicon/favicon.ico" />
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
+    ></script>
+    <title>サムライのポートフォリオ</title>
+  </head>
+
+  <body>
+    <div class="scl-line"></div>
+    <div id="msg-box"><span id="msg-box-txt"></span></div>
+
+    <header id="header">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <path
+          class="hdr-frg"
+          d="M1000,0 L400,0 L550,200 L450,450 L800,600 L1000,550 Z"
+          onmouseenter="(glühenPlay(), (hoverPower = 9))"
+          onmouseleave="(glühenFinish(), (hoverPower = 0))"
+        ></path>
+        <path
+          class="hdr-frg"
+          d="M0,998 L0,350 L200,450 L350,800 L750,998 Z"
+          onmouseenter="(glühenPlay(), (hoverPower = 9))"
+          onmouseleave="(glühenFinish(), (hoverPower = 0))"
+        ></path>
+      </svg>
+
+      <nav class="hdr-nav">
+        <div class="hdr-logo">
+          <div class="hdr-img" id="pjtLogo">
+            <img
+              src="Icons/samurai-maske.png"
+              alt="👹👹👹"
+              onmouseenter="(logoSkillsPlay(), (hoverPower = 18))"
+              onmouseleave="hoverPower = 0"
+            />
+          </div>
+          <span class="hdr-name">PROJECTS</span>
+        </div>
+        <span
+          class="item about"
+          onmouseenter="(exitPlay(), (hoverPower = 18))"
+          onmouseleave="hoverPower = 0"
+          onclick="linkPlayAboutMe()"
+          >ABOUT ME</span
+        >
+        <span
+          class="item skills"
+          onmouseenter="(exitPlay(), (hoverPower = 18))"
+          onmouseleave="hoverPower = 0"
+          onclick="linkPlaySkills()"
+          >SKILLS</span
+        >
+      </nav>
+
+      <div class="lava-edge top" style="top: 97.5%">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+      <div class="lava-edge top" style="transform: scaleY(-1); height: 40px">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+    </header>
+
+    <main id="main">
+      <!--- Project 1 --->
+
+      <div class="main-1">
+        <div class="main-zone zone-1">
+          <div class="main-img-vs img-1">
+            <iframe
+              class="main-ifr-1"
+              src="Projekte/MeinRestaurant/index.html"
+              onmouseenter="hoverPower = 18"
+              onmouseleave="hoverPower = 0"
+              frameborder="0"
+            ></iframe>
+            <div class="main-shd-ifr-1"></div>
+          </div>
+          <div class="main-txt-box-1">
+            <div class="main-txt">
+              <div class="line main-frg-line-top"></div>
+              <div class="line main-frg-line-bottom"></div>
+              <div class="line main-frg-line-left"></div>
+              <div class="line main-frg-line-right"></div>
+
+              <h1>Mein Erstes Projekt Ever</h1>
+              <p>
+                Mein erstes großes Porjekt war diese Restaurant Seite in der 7.
+                Klasse
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          class="main-link-1"
+          target="_blank"
+          onmouseenter="(exitPlay(), (hoverPower = 9))"
+          onmouseleave="hoverPower = 0"
+          onclick="window.location.href = 'Projekte/MeinRestaurant/index.html'"
+        >
+          Mein Restaurant
+        </span>
+        <div class="main-zone-shd shd-1">
+          <div class="main-shd-1"></div>
+          <div class="main-shd-2"></div>
+        </div>
+      </div>
+
+      <!--- Project 2 --->
+
+      <div class="main-2">
+        <div class="main-zone zone-2">
+          <div class="main-img-blender img-2">
+            <model-viewer
+              class="main-ifr-2"
+              src="Projekte/Blender/Kaktus.glb"
+              alt="3D Kaktus Stiftehalter"
+              onmouseenter="hoverPower = 18"
+              onmouseleave="hoverPower = 0"
+              auto-rotate
+              camera-controls
+              shadow-intensity="1"
+              environment-image="neutral"
+              exposure="1.2"
+              interaction-prompt="none"
+              style="background-color: transparent"
+            >
+            </model-viewer>
+          </div>
+
+          <div class="main-txt-box-2">
+            <div class="main-txt">
+              <div class="line main-frg-line-top"></div>
+              <div class="line main-frg-line-bottom"></div>
+              <div class="line main-frg-line-left"></div>
+              <div class="line main-frg-line-right"></div>
+
+              <h1>Mein Bestes Blender Projekt</h1>
+              <p>
+                Mein Bestes Blender Projekt ist ein Kaktus, richtig gehört. Es
+                ist ein Stiftehalter mit coolem Design und schon in der
+                richtigen Größe fertig zum Druck 😁😁😁
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          class="main-link-2"
+          onmouseenter="(exitPlay(), (hoverPower = 9))"
+          onmouseleave="hoverPower = 0"
+          onclick="downloadKaktusSTL()"
+        >
+          Mein Legendärer Kaktus
+        </span>
+        <div class="main-zone-shd shd-2">
+          <div class="main-shd-3"></div>
+          <div class="main-shd-4"></div>
+        </div>
+      </div>
+
+      <!--- Project 3 --->
+
+      <div class="main-2">
+        <div class="main-zone zone-2">
+          <div class="main-img-blender img-2">
+            <model-viewer
+              class="main-ifr-2"
+              src="Projekte/Blender/Orbital.glb"
+              alt="3D Kaktus Stiftehalter"
+              onmouseenter="hoverPower = 18"
+              onmouseleave="hoverPower = 0"
+              auto-rotate
+              camera-controls
+              shadow-intensity="1"
+              environment-image="neutral"
+              exposure="1.2"
+              interaction-prompt="none"
+              style="background-color: transparent"
+            >
+            </model-viewer>
+          </div>
+
+          <div class="main-txt-box-2">
+            <div class="main-txt">
+              <div class="line main-frg-line-top"></div>
+              <div class="line main-frg-line-bottom"></div>
+              <div class="line main-frg-line-left"></div>
+              <div class="line main-frg-line-right"></div>
+
+              <h1>Der Orbital</h1>
+              <p>
+                Der Orbital ist eine ✨Mystische✨ , aber einfache Kugel, die
+                einfach cool aussieht. Es hat eine Art Wellen-Einkerbung, die
+                ... nun ja, eine Einkerbung ist 😁
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          class="main-link-2 short-link-blender"
+          onmouseenter="(exitPlay(), (hoverPower = 9))"
+          onmouseleave="hoverPower = 0"
+          onclick="downloadOrbitalSTL()"
+        >
+          Der Orbital
+        </span>
+        <div class="main-zone-shd shd-2">
+          <div class="main-shd-3"></div>
+          <div class="main-shd-4"></div>
+        </div>
+      </div>
+
+      <!--- Project 4 --->
+
+      <div class="main-1">
+        <div class="main-zone zone-1">
+          <div class="main-img-vs img-1">
+            <iframe
+              class="main-ifr-1"
+              src="Projekte/Race World/raceworld.html"
+              onmouseenter="hoverPower = 18"
+              onmouseleave="hoverPower = 0"
+              frameborder="0"
+            ></iframe>
+            <div class="main-shd-ifr-1"></div>
+          </div>
+          <div class="main-txt-box-1">
+            <div class="main-txt">
+              <div class="line main-frg-line-top"></div>
+              <div class="line main-frg-line-bottom"></div>
+              <div class="line main-frg-line-left"></div>
+              <div class="line main-frg-line-right"></div>
+
+              <h1>Funny Race Room</h1>
+              <p>
+                Das ist ein Freizeit Projekt gewesehen für Physik, richtig
+                gehört. ✨Kinematische Energie✨
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          class="main-link-1"
+          target="_blank"
+          onmouseenter="(exitPlay(), (hoverPower = 9))"
+          onmouseleave="hoverPower = 0"
+          onclick="window.location.href = 'Projekte/Race World/raceworld.html'"
+        >
+          Funny Race Room
+        </span>
+        <div class="main-zone-shd shd-1">
+          <div class="main-shd-1"></div>
+          <div class="main-shd-2"></div>
+        </div>
+      </div>
+
+      <!--- Project 5 --->
+
+      <div class="main-1">
+        <div class="main-zone zone-1">
+          <div class="main-img-vs img-1">
+            <iframe
+              class="main-ifr-1"
+              src="Projekte/Glückspiele 🤑🤑🤑/Clicker.html"
+              onmouseenter="hoverPower = 18"
+              onmouseleave="hoverPower = 0"
+              frameborder="0"
+            ></iframe>
+            <div class="main-shd-ifr-1"></div>
+          </div>
+          <div class="main-txt-box-1">
+            <div class="main-txt">
+              <div class="line main-frg-line-top"></div>
+              <div class="line main-frg-line-bottom"></div>
+              <div class="line main-frg-line-left"></div>
+              <div class="line main-frg-line-right"></div>
+
+              <h1>Clicker / Raten</h1>
+              <p>
+                Das hier ist ein Clicker und ein Casino. Clicker ist
+                selbstverständlich und beim Rate Spiel muss man nur den PC eine
+                Zahl raten lassen
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          class="main-link-1 short-link-vs"
+          target="_blank"
+          onmouseenter="(exitPlay(), (hoverPower = 9))"
+          onmouseleave="hoverPower = 0"
+          onclick="
+            window.location.href = 'Projekte/Glückspiele 🤑🤑🤑/Clicker.html'
+          "
+        >
+          Clicker
+        </span>
+        <div class="main-zone-shd shd-1">
+          <div class="main-shd-1"></div>
+          <div class="main-shd-2"></div>
+        </div>
+      </div>
+
+      <!--- Project 6 (Verarsche) --->
+
+      <div class="main-2 verarsche" id="verarsche" style="margin-bottom: 0">
+        <div class="main-zone zone-2">
+          <div class="main-img-blender img-2">
+            <model-viewer
+              class="main-ifr-2"
+              src="Projekte/Blender/Verarsche.glb"
+              alt="3D Verarsche"
+              onmouseenter="hoverPower = 18"
+              onmouseleave="hoverPower = 0"
+              auto-rotate
+              camera-controls
+              shadow-intensity="1"
+              environment-image="neutral"
+              exposure="1.2"
+              interaction-prompt="none"
+              style="background-color: transparent"
+            >
+            </model-viewer>
+          </div>
+
+          <div class="main-txt-box-2 big-txt">
+            <div class="main-txt">
+              <div class="line main-frg-line-top"></div>
+              <div class="line main-frg-line-bottom"></div>
+              <div class="line main-frg-line-left"></div>
+              <div class="line main-frg-line-right"></div>
+
+              <h1>Die Legendäre Verarsche</h1>
+              <p>
+                Dieses Unglaubliche Blender Model wurde geschaffen, um dir zu
+                Zeigen, wie leichtgläubig Menschen sein können
+                <br />
+                ... <br />
+                merkste Selbst, ne 😁😁😁 Ein Wunderschöner Würfel, besonders um
+                einem Hops zu nehmen
+              </p>
+            </div>
+          </div>
+        </div>
+        <span
+          class="main-link-2 big-link"
+          onmouseenter="(exitPlay(), (hoverPower = 9))"
+          onmouseleave="hoverPower = 0"
+          onclick="downloadVerarscheSTL()"
+        >
+          Die Legendäre Verarsche
+        </span>
+        <div class="main-zone-shd shd-2 big-shd">
+          <div class="main-shd-3"></div>
+          <div class="main-shd-4"></div>
+        </div>
+      </div>
+    </main>
+
+    <div class="lava-scroll">
+      <svg
+        preserveAspectRatio="none"
+        viewBox="0 0 120 1600"
+        style="height: 100%; width: 100%"
+      >
+        <path id="lava-path-scroll" class="lava-path" d=""></path>
+      </svg>
+    </div>
+
+    <span
+      class="exit"
+      onmouseenter="(exitPlay(), (hoverPower = 18))"
+      onmouseleave="hoverPower = 0"
+      onclick="(linkPlayIndex(), localStorage.removeItem('lastSite'))"
+      >RÜCKZUG!!!</span
+    >
+
+    <footer id="footer">
+      <div class="lava-edge bottom" style="height: 80px">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+      <div class="lava-edge bottom" style="transform: scaleY(-1); bottom: 95%">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+
+      <nav class="ftr-nav">
+        <div>
+          <h1>Navigation</h1>
+
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="
+                ((window.location.href = 'index.html'),
+                  localStorage.removeItem('lastSite'))
+              "
+            >
+              Startsite
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'about_me.html'"
+            >
+              About Me
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'projects.html'"
+            >
+              Projects
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'skills.html'"
+            >
+              Skills
+            </span>
+          </h2>
+        </div>
+        <div>
+          <h1>Projects</h1>
+
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'projects.html#header'"
+            >
+              #Header
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'projects.html#main'"
+            >
+              #Main
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'projects.html#footer'"
+            >
+              #Footer
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'settings.html#projects'"
+            >
+              #Settings
+            </span>
+          </h2>
+
+          <div class="ftr-name">
+            <h3>Dennis Staral</h3>
+            <h3>2026© Portfolio</h3>
+          </div>
+        </div>
+        <div>
+          <h1>Rechtliches</h1>
+
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html'"
+            >
+              Rechtliches
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#impressum'"
+            >
+              #Impressum
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#data'"
+            >
+              #Datenschutzt
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#credits'"
+            >
+              #Credits
+            </span>
+          </h2>
+        </div>
+      </nav>
+    </footer>
+
+    <script src="audio.js" defer></script>
+    <script src="site.js" defer></script>
+    <script src="projects.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,259 @@
+/*--------------------------------------------------
+                        Root
+--------------------------------------------------*/
+
+:root {
+  /*
+    ------------
+       Akzente
+    ------------
+
+    Klassisches Rot
+    --clr-accent: 179, 0, 0;
+
+    Rot Pur
+    --clr-glow: 255, 0, 0;
+
+    Hellrot
+    --clr-bright: 255, 51, 51;
+
+    Gold
+    --clr-gold: 210, 176, 76;
+
+
+    ------------
+       Basis
+    ------------
+
+    Schwarzer Hintergrund
+    --clr-bg: 0, 0, 0;
+
+    Fragmente / Boxen
+    --clr-card: 26, 26, 26;
+
+    Weiße Textfarbe
+    --clr-txt: 255, 255, 255;
+
+    Grüne Bestätigung
+    --clr-ok: 0, 255, 0;
+    */
+
+  /* ------------
+        Helfer
+    ------------*/
+
+  /* spc = Special */
+  --clr-spc-white: 245, 245, 245;
+}
+
+/*--------------------------------------------------
+                    Header
+--------------------------------------------------*/
+
+header {
+  margin-bottom: 120px;
+}
+
+.hdr-frg {
+  fill: rgb(var(--clr-card));
+  stroke-width: 1;
+}
+
+.hdr-frg:hover {
+  fill: rgb(var(--clr-bg));
+  stroke-width: 2;
+}
+
+.skills {
+  top: 18%;
+  left: 10%;
+  transform: rotate(-8deg);
+}
+
+.projects {
+  bottom: 18%;
+  right: 10%;
+  transform: rotate(15deg);
+}
+
+.item {
+  display: inline-block;
+}
+
+.hdr-logo {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hdr-img {
+  box-sizing: border-box;
+  clip-path: polygon(15% 0%, 100% 5%, 85% 100%, 5% 90%);
+}
+
+.hdr-img img {
+  height: 100%;
+  width: 95%;
+}
+
+.hdr-img:hover {
+  animation: logoRotate 0.005s linear infinite;
+  transition: none;
+  border: 15px solid rgb(var(--clr-accent));
+}
+
+.hdr-img.ok {
+  animation: none;
+  border: 15px solid rgb(var(--clr-ok));
+}
+
+.hdr-img.ok img {
+  animation-delay: 0.05s;
+  animation: logoGlow 0.4s ease-out;
+  cursor: default;
+  pointer-events: none;
+}
+
+.hdr-img.crashout {
+  transform: scale(5);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.hdr-name {
+  font-size: 80px;
+  margin-top: 20px;
+  margin-right: -20px;
+  transform: rotate(3.5deg);
+}
+
+/*--------------------------------------------------
+                        Main
+--------------------------------------------------*/
+
+.main-1 {
+  position: relative;
+  height: 350px;
+}
+
+.main-2 {
+  position: relative;
+  height: 1000px;
+}
+
+.main-txt-1 {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 550px;
+  background: rgb(var(--clr-bg));
+  border-right: 4px solid rgb(var(--clr-glow));
+  padding: 50px;
+  transform: rotate(-3deg);
+  scroll-margin-top: 100px;
+}
+
+.main-txt-2 {
+  position: absolute;
+  top: 0;
+  right: 80px;
+  width: 550px;
+  background: rgb(var(--clr-bg));
+  border-right: 4px solid rgb(var(--clr-glow));
+  padding: 50px;
+  transform: rotate(1.5deg);
+}
+
+.txt {
+  font-size: 24px;
+  line-height: 1.5;
+  color: rgb(var(--clr-gold));
+}
+
+.txt b {
+  color: rgb(var(--clr-glow));
+}
+
+/*--------------------------------------------------
+                    @KeyFrames
+--------------------------------------------------*/
+
+@keyframes logoRotate {
+  0% {
+    transform: scale(1.25) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1.25) rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------
+                    @Media
+--------------------------------------------------*/
+
+@media (max-width: 800px) {
+  /*--------------------------------------------------
+                        Main
+  --------------------------------------------------*/
+
+  main {
+    width: 300px;
+  }
+
+  .main-1 {
+    height: 500px;
+  }
+
+  .main-2 {
+    height: 550px;
+  }
+
+  .txt {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  /*--------------------------------------------------
+                        Main
+  --------------------------------------------------*/
+
+  main {
+    width: 800px;
+  }
+
+  .main-1 {
+    height: 700px;
+  }
+
+  .main-2 {
+    height: 850px;
+  }
+
+  .txt {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  /*--------------------------------------------------
+                        Main
+  --------------------------------------------------*/
+
+  main {
+    width: 1200px;
+  }
+
+  .main-1 {
+    height: 700px;
+  }
+
+  .main-2 {
+    height: 850px;
+  }
+
+  .txt {
+    font-size: 20px;
+  }
+}

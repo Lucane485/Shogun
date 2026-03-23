@@ -1,0 +1,117 @@
+/*========================================
+                    Clicker
+========================================*/
+
+body {
+    /*------ background ------*/
+    background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 15%, #9fa8da 30%, #7986cb 45%, #5c6bc0 60%, #3f51b5 75%, #3949ab 90%, #303f9f 100%);
+    margin: 0px;
+    min-height: 100vh;
+
+    /*------ Schrift ------*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a1a2e;
+    font-weight: bold;
+}
+
+header {
+    /*------ flex ------*/
+    display: flex;
+    justify-content: space-between;
+
+    /*------ Layout ------*/
+    padding: 40px 70px;
+    background-color: #FFFFFF;
+}
+
+.logo {
+    font-size: 30px;
+    background: linear-gradient(90deg, #b794f6, #4facfe);
+    background-clip: text;
+    color: transparent;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+span {
+    cursor: pointer;
+    padding: 10px 0px;
+}
+
+.layout {
+    /*------ flex ------*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*------ flex ------*/
+    margin-top: 200px;
+}
+
+button {
+    /*------ flex ------*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*------ Layout ------*/
+    height: 100px;
+    width: 200px;
+    border-radius: 20px;
+    border: 0px solid #1a1a2e;
+
+    /*------ background ------*/
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+
+    font-size: 20px;
+}
+
+p {
+    background: linear-gradient(90deg, #4facfe);
+    background-clip: text;
+    color: transparent;
+    font-size: 20px;
+}
+
+/*========================================
+                    Casino
+========================================*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(165deg, #FFFFFF, #037A68, #666769);
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 100px;
+    height: 846px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 55px;
+}
+
+input {
+    height: 46px;
+    width: 246px;
+    border-radius: 15px;
+    border-color: black;
+    margin-top: 125px;
+    padding: 0px;
+    font-size: 25px;
+}
+
+button {
+    height: 35px;
+    width: 135px;
+    border-radius: 15px;
+    border-color: black;
+    margin-top: 25px;
+    padding: 0px;
+    font-size: 20px;
+}

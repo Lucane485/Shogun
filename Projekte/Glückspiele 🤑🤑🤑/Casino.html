@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_Casino.css" />
+    <title>Das Ultimative Casino</title>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header>
+      <!-- Überschrift -->
+      <h1 class="logo">Das Ultimative Casino</h1>
+
+      <!-- nav / span -->
+      <nav>
+        <span onclick="location = 'Clicker.html'">Clicker</span>
+      </nav>
+    </header>
+
+    <!-- Layer -->
+    <div class="stand">
+      <!-- Ergebnis -->
+      <p id="ergebnis">Zu Klein ❄️</p>
+
+      <!-- button -->
+      <div class="button">
+        <button id="klein">❄️Kleiner❄️</button>
+        <button id="perfekt">First Creme 🍦</button>
+        <button id="groß">🔥Größer🔥</button>
+      </div>
+
+      <button class="button-restart" id="reset">🔄 Neues Spiel</button>
+    </div>
+
+    <!-- Script -->
+    <script>
+      // -------------------------------------------
+      // Variablen (let)
+      // -------------------------------------------
+      let min = 0;
+      let max = 15000;
+      let guess = 0;
+      let attempts = 0;
+
+      // -------------------------------------------
+      // getElement (const)
+      // -------------------------------------------
+      const kleinBox = document.getElementById("klein");
+      const großBox = document.getElementById("groß");
+      const perfektBox = document.getElementById("perfekt");
+      const ergebnisText = document.getElementById("ergebnis");
+      const resetLink = document.getElementById("reset");
+
+      // -------------------------------------------
+      // Neue Vermutung berechnen
+      // -------------------------------------------
+      function neueVermutung() {
+        // ERROR
+        if (min > max) {
+          ergebnisText.textContent = "Error 404 - not found ❌";
+
+          // Weiterleitung (1.8sec)
+          setTimeout(() => {
+            location.href = "Clicker.html";
+          }, 1800);
+
+          return;
+        }
+
+        // Vermutung(Mathe)
+        guess = Math.floor((min + max) / 2);
+        ergebnisText.textContent = "Lass mich Raten: " + guess + "?";
+      }
+
+      // -------------------------------------------
+      // Spiel starten
+      // -------------------------------------------
+      function startGame() {
+        // Einstellungen (Anfang)
+        min = 0;
+        max = 15000;
+        attempts = 0;
+
+        // Willkommensnachricht anzeigen
+        ergebnisText.textContent = "Willkommen Spieler 🎰";
+
+        // erste Vermutung (1.8sec)
+        setTimeout(() => {
+          neueVermutung();
+        }, 1800);
+      }
+
+      // -------------------------------------------
+      // Event Listener – Buttons
+      // -------------------------------------------
+      kleinBox.addEventListener("click", () => {
+        max = guess - 1;
+        attempts++;
+        neueVermutung();
+      });
+
+      großBox.addEventListener("click", () => {
+        min = guess + 1;
+        attempts++;
+        neueVermutung();
+      });
+
+      perfektBox.addEventListener("click", () => {
+        ergebnisText.textContent =
+          "🥳 Geschafft in " + attempts + " Versuchen! 🥂";
+
+        // Neustart (3.0sec)
+        setTimeout(startGame, 3000);
+      });
+
+      // RESET — richtig verzögert
+      resetLink.addEventListener("click", () => {
+        ergebnisText.textContent = "Game is restarting 🔄";
+
+        // Übertragung (3.0sec)
+        setTimeout(startGame, 3000);
+      });
+
+      // -------------------------------------------
+      // Spiel Laden (sofort Start)
+      // -------------------------------------------
+      startGame();
+    </script>
+  </body>
+</html>

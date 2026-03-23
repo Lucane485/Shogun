@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="de" onmouseenter="themePlay()" onmouseleave="themeFinish()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="skills.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Icons/Favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Icons/Favicon/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/x-icon" href="Icons/Favicon/favicon.ico" />
+    <title>サムライのポートフォリオ</title>
+  </head>
+
+  <body>
+    <div class="scl-line"></div>
+    <div id="msg-box"><span id="msg-box-txt"></span></div>
+
+    <header id="header">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <path
+          class="hdr-frg"
+          d="M1000,0 L450,0 L550,150 L400,350 L600,500 L850,550 L1000,400 Z"
+          onmouseenter="(glühenPlay(), (hoverPower = 9))"
+          onmouseleave="(glühenFinish(), (hoverPower = 0))"
+        ></path>
+        <path
+          class="hdr-frg"
+          d="M0,1000 L650,1000 L500,850 L650,700 L450,550 L250,650 L0,450 Z"
+          onmouseenter="(glühenPlay(), (hoverPower = 9))"
+          onmouseleave="(glühenFinish(), (hoverPower = 0))"
+        ></path>
+      </svg>
+
+      <nav class="hdr-nav">
+        <div class="hdr-logo">
+          <div class="hdr-img" id="skillsLogo">
+            <img
+              src="Icons/samurai-maske.png"
+              alt="👹👹👹"
+              onmouseenter="(logoSkillsPlay(), (hoverPower = 18))"
+              onmouseleave="hoverPower = 0"
+            />
+          </div>
+          <span class="hdr-name">SKILLS</span>
+        </div>
+        <span
+          class="item about"
+          onmouseenter="(exitPlay(), (hoverPower = 18))"
+          onmouseleave="hoverPower = 0"
+          onclick="linkPlayAboutMe()"
+          >ABOUT ME</span
+        >
+        <span
+          class="item projects"
+          onmouseenter="(exitPlay(), (hoverPower = 18))"
+          onmouseleave="hoverPower = 0"
+          onclick="linkPlayProjects()"
+          >PROJECTE</span
+        >
+      </nav>
+
+      <div class="lava-edge top" style="top: 97.5%">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+      <div class="lava-edge top" style="transform: scaleY(-1); height: 40px">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="main-txt">
+        <div class="txt" id="text0" style="opacity: 1; z-index: 6">
+          <b>Hallo</b>
+          <p id="text_open">
+            Wähle eines der <b>Icons</b> und clicke auf ihn, um einen kurzen
+            Text darüber zu sehen.
+          </p>
+          <span
+            id="arrow_down"
+            onmouseenter="hoverPower = 5"
+            onmouseleave="hoverPower = 0"
+            onclick="skillsPlay()"
+            >🢃</span
+          >
+        </div>
+        <div class="txt" id="text1">
+          <b>HTML</b>
+          <p>
+            Das Konstrukt einer jeden Internetseite. HTML ist der Inhaltder
+            Seite und liefert jegliche Elemente. Dafür ist HTML statisch und
+            Unflexibel.
+          </p>
+        </div>
+        <div class="txt" id="text2">
+          <b>WORD</b>
+          <p>
+            Das Programm zum Texte schreiben. Lebensläufe verfassen und so
+            weiter. Wordmist ein kostenpflichtiges Programm von Microsoft, womit
+            man alles mögliche Schreiben kann, was man will und wie man will.
+            Dazu kann man verschiedenste Formen oder sogar Bilder und Videos
+            eifügen und sie entsprechend anpassen.
+          </p>
+        </div>
+        <div class="txt" id="text3">
+          <b>CSS</b>
+          <p>
+            Die Anforderungen von HTML. CSS entscheidet, wie eine Seite Aussehen
+            soll. HTML Baut, CSS Designt. CSS kann aber auch Interaktiv sein und
+            einfache Animationen abspielen, ist aber dafür bei der
+            Interaktivität eingeschränkt.
+          </p>
+        </div>
+        <div class="txt" id="text4">
+          <b>POWERPOINT</b>
+          <p>
+            Das Vortrag Programm. Gerne mal wird gesagt, dass man eine
+            PowerPoint machen soll, aber was ist das. PowerPoint ist ein
+            Programm von Microsoft sowie Word und Excel udn dient dazu meist
+            Vorträge vorzubereiten, aber man kann auch z.B. ein MockUp machen,
+            was wichtig in der Programmier-Branche ist.
+          </p>
+        </div>
+        <div class="txt" id="text5">
+          <b>JAVASCRIPT</b>
+          <p>
+            Das Leben in der Seite. Was bringt es eine Vollkommene Seite ohne
+            Leben zu Kreieren. JavaScript ist schwieriger als HTML oder CSS,
+            kann aber dafür jegliche Interaktionen durchführen, von
+            Textveränderungen bis zum Wortwörtlichem Leben auf der Seite.
+          </p>
+        </div>
+        <div class="txt" id="text6">
+          <b>EXCLE</b>
+          <p>
+            Excel. Tabellen, Rechnen, Vergleichen, den PC für einen Arbeiten
+            lassen. Das Programm von Microsoft, Excel. Eyxel wird oft in Büro
+            Jobs verwendet, um z.B. Aufgaben auszurechnen und Aufträge einfacher
+            auszuführen. Aber man kann auch andere Sachen mit Excel machen,
+            besonders als Schüler ist Excel sehr gut geeignet,
+            Inhaltsverzeichnisse zu machen oder derartiges.
+          </p>
+        </div>
+        <div class="txt" id="text7">
+          <b>MATERIAL DESIGN LITE</b>
+          <p>
+            Eine Einfache Internetseite worauf man verschiedenste Elemente für
+            alle 3 Bereiche des Codens finden kann, HTML über CSS bis hin zu JS.
+            Einfach nur ein kleiner Link und schon gehts los.
+            <br />
+            ... <br />
+            Inzwischen wurde die Internetseite leider Runtergenommen 😭 War gut
+            für Einsteiger ... Eine Schweige Minute für MDL
+          </p>
+        </div>
+        <div class="txt" id="text8">
+          <b>BLENDER</b>
+          <p>
+            Ein Programm, was Gratis, aber Vielfältig ist. Es braucht nur
+            Kreativität, um gute 3D Modelle zu Modellieren, von Winzigen
+            Ameisen-Modelle bis hin zu Unvorstellbaren Objekten, man braucht nur
+            den richtigen 3D Drucker 😁.
+          </p>
+        </div>
+      </div>
+
+      <div class="main-slot">
+        <img
+          class="slot"
+          id="slot1"
+          src="Icons/html_iconscout(icon-mafia).png"
+          alt="HTML"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+        <img
+          class="slot"
+          id="slot2"
+          src="Icons/word_iconscout(maninderkaur).png"
+          alt="Word"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+        <img
+          class="slot"
+          id="slot3"
+          src="Icons/css_iconscout(pixel-icons).png"
+          alt="CSS"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+        <img
+          class="slot"
+          id="slot4"
+          src="Icons/ppt_iconscout(maninderkaur).png"
+          alt="PPT"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+        <img
+          class="slot"
+          id="slot5"
+          src="Icons/js_iconscout(icon-mafia).png"
+          alt="JS"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+        <img
+          class="slot"
+          id="slot6"
+          src="Icons/excel_iconscout(maninderkaur).png"
+          alt="Excel"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+        <img
+          class="slot"
+          id="slot7"
+          src="Icons/mdl_webfonts.png"
+          alt="MDL"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+        <img
+          class="slot"
+          id="slot8"
+          src="Icons/blender_icon8.png"
+          alt="Blender"
+          onmouseenter="hoverPower = 5"
+          onmouseleave="hoverPower = 0"
+          onclick="skillsPlay()"
+        />
+      </div>
+    </main>
+
+    <div class="lava-scroll">
+      <svg
+        preserveAspectRatio="none"
+        viewBox="0 0 120 1600"
+        style="height: 100%; width: 100%"
+      >
+        <path id="lava-path-scroll" class="lava-path" d=""></path>
+      </svg>
+    </div>
+
+    <span
+      class="exit"
+      onmouseenter="(exitPlay(), (hoverPower = 18))"
+      onmouseleave="hoverPower = 0"
+      onclick="(linkPlayIndex(), localStorage.removeItem('lastSite'))"
+      >RÜCKZUG!!!</span
+    >
+
+    <footer id="footer">
+      <div class="lava-edge bottom" style="height: 80px">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+      <div class="lava-edge bottom" style="transform: scaleY(-1); bottom: 95%">
+        <svg preserveAspectRatio="none" viewBox="0 0 1600 120">
+          <path class="lava-path" d=""></path>
+        </svg>
+      </div>
+
+      <nav class="ftr-nav">
+        <div>
+          <h1>Navigation</h1>
+
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="
+                ((window.location.href = 'index.html'),
+                  localStorage.removeItem('lastSite'))
+              "
+            >
+              Startsite
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'about_me.html'"
+            >
+              About Me
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'projects.html'"
+            >
+              Projects
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'skills.html'"
+            >
+              Skills
+            </span>
+          </h2>
+        </div>
+        <div>
+          <h1>Skills</h1>
+
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'skills.html#header'"
+            >
+              #Header
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'skills.html#main'"
+            >
+              #Main
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'skills.html#footer'"
+            >
+              #Footer
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'settings.html#skills'"
+            >
+              #Settings
+            </span>
+          </h2>
+
+          <div class="ftr-name">
+            <h3>Dennis Staral</h3>
+            <h3>2026© Portfolio</h3>
+          </div>
+        </div>
+        <div>
+          <h1>Rechtliches</h1>
+
+          <h2>
+            <span
+              class="ftr-link"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html'"
+            >
+              Rechtliches
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#impressum'"
+            >
+              #Impressum
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#data'"
+            >
+              #Datenschutzt
+            </span>
+          </h2>
+          <h2>
+            <span
+              class="ftr-link data-li"
+              onmouseenter="hoverPower = 5"
+              onmouseleave="hoverPower = 0"
+              onclick="window.location.href = 'data.html#credits'"
+            >
+              #Credits
+            </span>
+          </h2>
+        </div>
+      </nav>
+    </footer>
+
+    <script src="audio.js" defer></script>
+    <script src="site.js" defer></script>
+    <script src="skills.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style_Clicker.css" />
+    <title>Der Ultimative Clicker</title>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header>
+      <!-- Überschrift -->
+      <h1 class="logo">🍪Der Ultimative Clicker🍪</h1>
+
+      <!-- nav / span -->
+      <nav>
+        <span onclick="location = 'Casino.html'">Casino</span>
+      </nav>
+    </header>
+
+    <!-- Layer (Ergebnis / button) -->
+    <div class="stand">
+      <p>Punkte: <span id="punkte">0</span></p>
+      <button class="button-light" id="button">🍪🍪🍪</button>
+    </div>
+
+    <!-- script -->
+    <script>
+      // let
+      let punktestand = 0; // Punkte Start
+
+      // getElement
+      document.getElementById("punkte"); // Element: punkte
+
+      // EventListener
+      document.getElementById("button").addEventListener("click", function () {
+        punktestand++; // Punkt hinzufügen
+        punkte.innerText = punktestand; // Ergebnis
+      });
+    </script>
+  </body>
+</html>

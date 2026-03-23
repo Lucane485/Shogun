@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="de" onmouseenter="themePlay()" onmouseleave="themeFinish()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="data_settings.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Icons/Favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Icons/Favicon/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/x-icon" href="Icons/Favicon/favicon.ico" />
+    <title>サムライのポートフォリオ</title>
+  </head>
+
+  <body>
+    <div class="scl-line"></div>
+    <div class="body-bg"></div>
+    <div id="msg-box"><span id="msg-box-txt"></span></div>
+
+    <header>
+      <div class="hdr-bg">枢</div>
+      <div class="hdr-name">
+        <h1>KODEX</h1>
+        <span class="hdr-txt">Einstellungen</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-zone" id="settings" onmouseenter="skillsPlay()">
+        <div class="main-name">
+          <h2 class="stn-h2">(Settings)</h2>
+          <div class="main-line"></div>
+        </div>
+
+        <div class="main-txt">
+          <h3 class="stn-h3">Special</h3>
+          <div class="main-txt-crt">
+            <h4>Go Crazy</h4>
+            <div class="main-chs">
+              <span class="main-chs-crt" id="settings-ok-1">Ok 🤷</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-zone" id="index" onmouseenter="skillsPlay()">
+        <div class="main-name">
+          <h2 class="stn-h2">Startsite</h2>
+          <div class="main-line"></div>
+        </div>
+
+        <div class="main-txt">
+          <h3 class="stn-h3">Special</h3>
+          <div class="main-txt-crt">
+            <h4>Go Crazy</h4>
+            <div class="main-chs">
+              <span class="main-chs-crt" id="settings-ok-2">Ok 🤷</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-zone" id="about_me" onmouseenter="skillsPlay()">
+        <div class="main-name">
+          <h2 class="stn-h2">About Me</h2>
+          <div class="main-line"></div>
+        </div>
+
+        <div class="main-txt">
+          <h3 class="stn-h3">Header</h3>
+          <div class="main-txt-crt">
+            <h4>Logo</h4>
+            <div class="main-chs">
+              <span class="main-chs-crt" id="me-logo-1">Langsam</span>
+              <span class="main-chs-crt" id="me-logo-2">Schnell</span>
+            </div>
+          </div>
+          <h3 class="stn-h3">Special</h3>
+          <div class="main-txt-crt">
+            <h4>Go Crazy</h4>
+            <div class="main-chs">
+              <span class="main-chs-crt" id="settings-ok-3">Ok 🤷</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-zone" id="projects" onmouseenter="skillsPlay()">
+        <div class="main-name">
+          <h2 class="stn-h2">Projects</h2>
+          <div class="main-line"></div>
+        </div>
+
+        <div class="main-txt">
+          <h3 class="stn-h3">Special</h3>
+          <div class="main-txt-crt">
+            <h4>Go Crazy</h4>
+            <div class="main-chs">
+              <span class="main-chs-crt" id="settings-ok-4">Ok 🤷</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-zone" id="skills" onmouseenter="skillsPlay()">
+        <div class="main-name">
+          <h2 class="stn-h2">Skills</h2>
+          <div class="main-line"></div>
+        </div>
+
+        <div class="main-txt">
+          <h3 class="stn-h3">Special</h3>
+          <div class="main-txt-crt">
+            <h4>Go Crazy</h4>
+            <div class="main-chs">
+              <span class="main-chs-crt" id="settings-ok-5">Ok 🤷</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-zone" id="data" onmouseenter="skillsPlay()">
+        <div class="main-name">
+          <h2 class="stn-h2">Datenschutz</h2>
+          <div class="main-line"></div>
+        </div>
+
+        <div class="main-txt">
+          <h3 class="stn-h3">Special</h3>
+          <div class="main-txt-crt">
+            <h4>Go Crazy</h4>
+            <div class="main-chs">
+              <span class="main-chs-crt" id="settings-ok-6">Ok 🤷</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="link">
+        <span
+          class="exit"
+          id="dataLink"
+          onmouseenter="exitPlay()"
+          onclick="backLink()"
+          >RÜCKZUG</span
+        >
+      </div>
+    </main>
+
+    <script src="audio.js"></script>
+    <script src="site.js" defer></script>
+    <script src="settings.js"></script>
+  </body>
+</html>

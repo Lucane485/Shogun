@@ -1,0 +1,112 @@
+/*----------------------------------------
+                    body
+----------------------------------------*/
+body {
+  /*------ background ------*/
+  background-color: #1a1a2e;
+  background-image: url(2151007731.jpg);
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  margin: 0px;
+  min-height: 100vh;
+
+  /*------ Schrift ------*/
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/*----------------------------------------
+                    header
+----------------------------------------*/
+header {
+  /*------ flex ------*/
+  display: flex;
+  justify-content: space-between;
+
+  /*------ Layout ------*/
+  padding: 40px 80px;
+}
+
+.logo {
+  /*------ Schrift ------*/
+  font-size: 30px;
+  cursor: default;
+
+  /*------ background ------*/
+  background: linear-gradient(90deg, #ffffff);
+  background-clip: text;
+  color: transparent;
+}
+
+nav {
+  /*------ flex ------*/
+  display: flex;
+  align-items: center;
+
+  /*------ backgroud ------*/
+  background: linear-gradient(90deg, #ffffff, #bba14f);
+  background-clip: text;
+  color: transparent;
+  gap: 30px;
+}
+
+span {
+  cursor: pointer;
+  padding: 10px 0px;
+}
+
+/*----------------------------------------
+                    Layer
+----------------------------------------*/
+button {
+  /*------ flex ------*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*------ border ------*/
+  border: 0px solid #ffffff;
+  border-radius: 20px;
+
+  /*------ background ------*/
+  background: linear-gradient(135deg, #bba14f, #000000);
+  height: 50px;
+  width: 250px;
+
+  /*------ Schrift ------*/
+  font-size: 20px;
+  cursor: pointer;
+}
+
+p {
+  color: #ffffff;
+  font-size: 20px;
+  cursor: default;
+
+  margin-bottom: 30px;
+}
+
+.stand {
+  /*------ flex ------*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /*------ margin (top) ------*/
+  margin-top: 200px;
+}
+
+.button {
+  /*------ flex ------*/
+  display: flex;
+  flex-direction: row;
+
+  /*------ gap ------*/
+  gap: 20px;
+}
+
+.button-restart {
+  margin-top: 30px;
+}

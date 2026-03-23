@@ -1,0 +1,152 @@
+/*----------------------------------------
+                    body
+----------------------------------------*/
+body {
+    /*------ background ------*/
+    background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 15%, #9fa8da 30%, #7986cb 45%, #5c6bc0 60%, #3f51b5 75%, #3949ab 90%, #303f9f 100%);
+    margin: 0px;
+    min-height: 100vh;
+
+    /*------ animation ------*/
+    animation: slide 15s ease infinite;
+    overflow-x: hidden;
+    transition: all 0.5s ease;
+    will-change: background-position;
+
+    /*------ Schrift ------*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a1a2e;
+    font-weight: bolder;
+}
+
+/*------ @keyframes (slide) ------*/
+@keyframes slide {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/*----------------------------------------
+                    header
+----------------------------------------*/
+header {
+    /*------ flex ------*/
+    display: flex;
+    justify-content: space-between;
+
+    /*------ Layout ------*/
+    padding: 40px 70px;
+    background-color: #FFFFFF;
+}
+
+.logo {
+    /*------ background ------*/
+    background: linear-gradient(90deg, #b794f6, #4facfe);
+    background-clip: text;
+    color: transparent;
+
+    /*------ Schrift ------*/
+    font-size: 28px;
+    cursor: default;
+}
+
+nav {
+    /*------ flex ------*/
+    display: flex;
+    align-items: center;
+
+    /*------ gap ------*/
+    gap: 30px;
+}
+
+span {
+    /*------ Schrift ------*/
+    cursor: pointer;
+
+    /*------ Layout ------*/
+    padding: 10px 0px;
+}
+
+/*------ Special (start) ------*/
+nav span {
+    /*------  Layout------*/
+    position: relative;
+    padding: 4px 0px;
+
+    /*------  Schrift------*/
+    cursor: pointer;
+    color: #1a1a2e;
+}
+
+/* ::before */
+nav span::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+
+    /*------ gradient (background) ------*/
+    background: linear-gradient(90deg, #b794f6, #4facfe);
+    transition: width 0.3s ease;
+}
+
+/* :hover::before */
+nav span:hover::before {
+    width: 100%;
+}
+
+/*------ Special (end) ------*/
+
+/*----------------------------------------
+                    Layer
+----------------------------------------*/
+button {
+    /*------ flex ------*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*------ Layout ------*/
+    height: 100px;
+    width: 200px;
+    border-radius: 20px;
+    border: 0px solid #1a1a2e;
+
+    /*------ background ------*/
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+
+    /*------ Schrift ------*/
+    font-size: 20px;
+    cursor: pointer;
+}
+
+p {
+    /*------ backgroud ------*/
+    background: linear-gradient(90deg, #4facfe, #b794f6);
+    background-clip: text;
+    color: transparent;
+
+    /*------ Schrift ------*/
+    font-size: 20px;
+    cursor: default;
+}
+
+.stand {
+    /*------ flex ------*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*------ margin (top) ------*/
+    margin-top: 200px;
+}

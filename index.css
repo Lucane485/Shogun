@@ -1,0 +1,240 @@
+:root {
+  --clr-bg: 245, 245, 245;
+  --clr-aura: 0, 0, 0;
+  --clr-dark: 12, 12, 12;
+  --clr-light: 26, 26, 26;
+  --clr-glow: 255, 0, 0;
+  --clr-accent: 179, 0, 0;
+  --clr-bright: 120, 0, 0;
+}
+
+/*--------------------------------------------------
+                        Body
+--------------------------------------------------*/
+body {
+  margin: 0;
+  width: 1600px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: rgb(var(--clr-bg));
+  font-family: "Ma Shan Zheng", cursive;
+  overflow: hidden;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*--------------------------------------------------
+                        Logo
+--------------------------------------------------*/
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sho {
+  order: 1;
+}
+
+.gun {
+  order: 3;
+}
+
+.logo-img {
+  order: 2;
+}
+
+.logo-img {
+  width: 50%;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  z-index: 2;
+  animation: passivZittern 0.65s linear infinite;
+}
+
+.logo-img:hover {
+  animation: aktivZittern 0.2s linear infinite;
+  transform: scale(0.95);
+}
+
+.logo-txt {
+  font-size: 300px;
+  color: rgb(var(--clr-light));
+  z-index: 1;
+  text-shadow: 5px 5px rgb(var(--clr-accent));
+  margin: 0 5px;
+  animation: passivZittern 0.5s linear infinite;
+}
+
+/*--------------------------------------------------
+                        Aura
+--------------------------------------------------*/
+
+.aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  background: radial-gradient(
+    circle,
+    rgb(var(--clr-aura)) 20%,
+    rgb(var(--clr-dark)) 40%,
+    rgb(var(--clr-light)) 65%,
+    rgb(var(--clr-bright)) 80%,
+    rgb(var(--clr-accent)) 90%,
+    rgb(var(--clr-glow)) 100%
+  );
+}
+
+.logo-img:hover ~ .aura {
+  opacity: 1;
+}
+
+.logo-img:hover ~ .logo-txt {
+  text-shadow:
+    10px 10px 0px rgb(var(--clr-accent)),
+    10px 10px 10px rgb(var(--clr-glow)),
+    10px 10px 15px rgb(var(--clr-accent));
+  animation: passivZittern 0.15s linear infinite;
+}
+
+/*--------------------------------------------------
+                    @KeyFrames
+--------------------------------------------------*/
+
+@keyframes aktivZittern {
+  0%,
+  100% {
+    transform: scale(0.95) translate(0, 0);
+  }
+
+  25% {
+    transform: scale(0.95) translate(10px, -10px);
+  }
+
+  50% {
+    transform: scale(0.95) translate(-10px, 10px);
+  }
+
+  75% {
+    transform: scale(0.95) translate(10px, 10px);
+  }
+}
+
+@keyframes passivZittern {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(2px, -2px);
+  }
+
+  50% {
+    transform: translate(-2px, 2px);
+  }
+
+  75% {
+    transform: translate(2px, 2px);
+  }
+}
+
+/*--------------------------------------------------
+                    Message-Box
+--------------------------------------------------*/
+#msg-box {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    135deg,
+    rgb(var(--clr-aura), 0.9),
+    rgb(var(--clr-accent), 0.6)
+  );
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 10px 30px rgb(var(--clr-aura), 0.3);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+#msg-box-txt {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--clr-txt)),
+    rgb(var(--clr-gold))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+#msg-box.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(20px);
+}
+
+/*--------------------------------------------------
+                    @Media
+--------------------------------------------------*/
+
+@media (max-width: 800px) {
+  /*--------------------------------------------------
+                        Body
+  --------------------------------------------------*/
+
+  body {
+    width: 300px;
+  }
+
+  .logo-txt {
+    font-size: 100px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  /*--------------------------------------------------
+                        Body
+  --------------------------------------------------*/
+
+  body {
+    width: 800px;
+  }
+
+  .logo-txt {
+    font-size: 130px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  /*--------------------------------------------------
+                        Body
+  --------------------------------------------------*/
+
+  body {
+    width: 1200px;
+  }
+
+  .logo-txt {
+    font-size: 200px;
+  }
+}

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autobahn Racer - Aston Martin F1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .game-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, rgba(0, 111, 98, 0.25), rgba(0, 90, 80, 0.15));
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            gap: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(0, 111, 98, 0.4);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #ddd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+            font-weight: 900;
+        }
+
+        .gear-display {
+            font-size: 48px !important;
+            color: #00ffcc;
+            text-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+        }
+
+        #gameCanvas {
+            border: 3px solid #00ff88;
+            border-radius: 15px;
+            flex: 1;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .diagram-section {
+            width: 380px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .diagram-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #00ff88;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        #speedChart {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #speedChart {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .controls-info {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 111, 98, 0.2), rgba(0, 90, 80, 0.1));
+            border-radius: 10px;
+            font-size: 14px;
+            border: 2px solid rgba(0, 111, 98, 0.3);
+        }
+
+        .controls-info h3 {
+            color: #00ff88;
+            margin-bottom: 12px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .controls-info p {
+            margin: 8px 0;
+            color: #eee;
+        }
+
+        .game-over {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(20, 20, 40, 0.98));
+            padding: 50px;
+            border-radius: 20px;
+            border: 4px solid #00ff88;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .game-over h2 {
+            color: #00ff88;
+            font-size: 48px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+        }
+
+        .game-over button {
+            background: linear-gradient(135deg, #00ff88, #00ffcc);
+            color: #0a0a0a;
+            border: none;
+            padding: 18px 50px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 25px;
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.5);
+            transition: all 0.3s;
+        }
+
+        .game-over button:hover {
+            background: linear-gradient(135deg, #00ffcc, #00ff88);
+            transform: scale(1.08);
+        }
+
+        .start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 50, 40, 0.95));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .start-content {
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+
+        .start-content h1 {
+            font-size: 64px;
+            color: #00ff88;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+        }
+
+        .start-content h2 {
+            font-size: 32px;
+            color: #00ffcc;
+            margin-bottom: 30px;
+        }
+
+        .start-content button {
+            background: linear-gradient(135deg, #00ff88, #00ffcc);
+            color: #0a0a0a;
+            border: none;
+            padding: 20px 60px;
+            font-size: 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
+            transition: all 0.3s;
+        }
+
+        .start-content button:hover {
+            transform: scale(1.1);
+        }
+
+        .manual-toggle {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        .checkbox-container {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #00ff88;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checkbox-container:hover {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .checkbox-container.checked {
+            background: #00ff88;
+        }
+
+        .checkmark {
+            display: none;
+            color: #0a0a0a;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .checkbox-container.checked .checkmark {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="start-screen" id="startScreen">
+        <div class="start-content">
+            <h1>🏎️ AUTOBAHN RACER 🏎️</h1>
+            <h2>Aston Martin F1 Edition</h2>
+            <p style="font-size: 20px; margin-bottom: 40px; color: #ddd;">Physik trifft auf Speed!</p>
+            <button onclick="startGame()">START!</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="game-section">
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-label">Geschwindigkeit</div>
+                    <div class="stat-value"><span id="speed">0</span> km/h</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Gang</div>
+                    <div class="stat-value gear-display" id="gear">1</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Punkte</div>
+                    <div class="stat-value" id="score">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Strecke</div>
+                    <div class="stat-value"><span id="distance">0</span> m</div>
+                </div>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+        </div>
+        
+        <div class="diagram-section">
+            <div class="diagram-title">⚡ v-t Diagramm ⚡</div>
+            <canvas id="speedChart" width="330" height="200"></canvas>
+            
+            <div class="diagram-title" style="margin-top: 20px;">📍 s-t Diagramm 📍</div>
+            <canvas id="distanceChart" width="330" height="200"></canvas>
+            
+            <div class="controls-info">
+                <h3>🎮 Steuerung</h3>
+                <p><strong>W</strong> - Gas</p>
+                <p><strong>S</strong> - Bremse</p>
+                <p><strong>A</strong> - Nach Links</p>
+                <p><strong>D</strong> - Nach Rechts</p>
+                <div class="manual-toggle" style="margin-top: 15px;">
+                    <span>Test Strecke</span>
+                    <div class="checkbox-container" id="testCheckbox" onclick="toggleTestMode()">
+                        <span class="checkmark">✓</span>
+                    </div>
+                </div>
+                <div class="manual-toggle" style="margin-top: 15px;">
+                    <span>Manuell</span>
+                    <div class="checkbox-container" id="manualCheckbox" onclick="toggleManual()">
+                        <span class="checkmark">✓</span>
+                    </div>
+                </div>
+                <p id="manualControls" style="display: none; margin-top: 10px;"><strong>↑ / Leertaste</strong> - Hoch<br><strong>↓ / Shift</strong> - Runter</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-over" id="gameOver">
+        <h2>💥 CRASH! 💥</h2>
+        <p style="font-size: 28px; margin: 15px 0; color: #00ff88;">Punkte: <span id="finalScore">0</span></p>
+        <p style="font-size: 20px; color: #aaa;">Strecke: <span id="finalDistance">0</span> m</p>
+        <button onclick="restartGame()">🔄 NOCHMAL!</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const chartCanvas = document.getElementById('speedChart');
+        const chartCtx = chartCanvas.getContext('2d');
+        const distanceChartCanvas = document.getElementById('distanceChart');
+        const distanceChartCtx = distanceChartCanvas.getContext('2d');
+
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+
+        const keys = {};
+        let gameRunning = false;
+        let onRamp = true;
+        let score = 0;
+        let time = 0;
+        let speedData = [];
+        let distanceData = [];
+        let timeData = [];
+        let manualShifting = false;
+        let testMode = false;
+        const maxDataPoints = 100;
+        const gearRatios = [0, 40, 85, 115, 160, 200, 245, 285, 320];
+        const gearNames = ['N', '1', '2', '3', '4', '5', '6', '7', '8'];
+
+        const player = {
+            x: 0, y: canvas.height - 150, width: 45, height: 135,
+            speed: 0, gear: 1, maxSpeed: 320,
+            baseAcceleration: 1, deceleration: 3.5, friction: 0.07,
+            lane: 0, distance: 0, shifting: false, shiftDelay: 0
+        };
+
+        const rampLanes = [canvas.width * 0.565];
+        const mainLanes = [canvas.width * 0.265, canvas.width * 0.365, canvas.width * 0.465, canvas.width * 0.565];
+        const traffic = [];
+        const trees = [];
+        let roadOffset = 0, environmentOffset = 0, lastSpawnTime = 0, rampProgress = 0;
+
+        document.addEventListener('keydown', e => {
+            keys[e.key.toLowerCase()] = true;
+            if ((e.key === 'ArrowUp' || e.key === ' ') && gameRunning && !onRamp && manualShifting) {
+                e.preventDefault();
+                shiftUp();
+            }
+            if ((e.key === 'ArrowDown' || e.key === 'Shift') && gameRunning && !onRamp && manualShifting) {
+                e.preventDefault();
+                shiftDown();
+            }
+        });
+        document.addEventListener('keyup', e => keys[e.key.toLowerCase()] = false);
+
+        function toggleManual() {
+            manualShifting = !manualShifting;
+            const checkbox = document.getElementById('manualCheckbox');
+            const manualControls = document.getElementById('manualControls');
+            if (manualShifting) {
+                checkbox.classList.add('checked');
+                manualControls.style.display = 'block';
+            } else {
+                checkbox.classList.remove('checked');
+                manualControls.style.display = 'none';
+            }
+        }
+
+        function toggleTestMode() {
+            testMode = !testMode;
+            const checkbox = document.getElementById('testCheckbox');
+            if (testMode) {
+                checkbox.classList.add('checked');
+            } else {
+                checkbox.classList.remove('checked');
+            }
+        }
+
+        function startGame() {
+            document.getElementById('startScreen').style.display = 'none';
+            gameRunning = true;
+            spawnTrees();
+            gameLoop();
+        }
+
+        function shiftUp() {
+            if (player.gear < 8 && !player.shifting && manualShifting) {
+                player.gear++;
+                player.shifting = true;
+                player.shiftDelay = 8;
+                document.getElementById('gear').textContent = gearNames[player.gear];
+            }
+        }
+
+        function shiftDown() {
+            if (player.gear > 1 && !player.shifting && manualShifting) {
+                player.gear--;
+                player.shifting = true;
+                player.shiftDelay = 6;
+                document.getElementById('gear').textContent = gearNames[player.gear];
+            }
+        }
+
+        function autoShift() {
+            if (manualShifting || player.shifting) return;
+            
+            if (player.speed > gearRatios[player.gear] - 5 && player.gear < 8) {
+                player.gear++;
+                document.getElementById('gear').textContent = gearNames[player.gear];
+            } else if (player.speed < gearRatios[player.gear - 1] + 5 && player.gear > 1) {
+                player.gear--;
+                document.getElementById('gear').textContent = gearNames[player.gear];
+            }
+        }
+
+        class Car {
+            constructor(lane, speed) {
+                this.x = mainLanes[lane];
+                this.y = -150;
+                this.width = 45;
+                this.height = 85;
+                this.speed = speed;
+                this.lane = lane;
+                this.changeLaneTimer = Math.random() * 500 + 400;
+                const colors = [
+                    {body: '#1a1a1a', accent: '#2a2a2a'},
+                    {body: '#2c3e50', accent: '#34495e'},
+                    {body: '#7f8c8d', accent: '#95a5a6'},
+                    {body: '#c0392b', accent: '#e74c3c'},
+                    {body: '#2980b9', accent: '#3498db'}
+                ];
+                this.carColor = colors[Math.floor(Math.random() * colors.length)];
+                this.passed = false;
+            }
+
+            update() {
+                this.y += (player.speed - this.speed) * 0.06;
+                
+                if (this.lane < 3) {
+                    this.changeLaneTimer--;
+                    if (this.changeLaneTimer <= 0 && Math.random() < 0.25) {
+                        const direction = Math.random() < 0.5 ? -1 : 1;
+                        const newLane = this.lane + direction;
+                        if (newLane >= 0 && newLane < 3) {
+                            this.lane = newLane;
+                            this.changeLaneTimer = Math.random() * 600 + 400;
+                        }
+                    }
+                }
+
+                const targetX = mainLanes[this.lane];
+                this.x += (targetX - this.x) * 0.05;
+
+                if (!this.passed && this.y > player.y + 50) {
+                    this.passed = true;
+                    score += 15;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = this.carColor.body;
+                ctx.fillRect(this.x - this.width/2, this.y, this.width, this.height);
+                ctx.fillStyle = this.carColor.accent;
+                ctx.fillRect(this.x - this.width/2 + 4, this.y + 5, this.width - 8, 18);
+                ctx.fillStyle = 'rgba(100, 150, 200, 0.5)';
+                ctx.fillRect(this.x - this.width/2 + 8, this.y + 28, this.width - 16, 20);
+                ctx.fillStyle = '#ffff00';
+                ctx.fillRect(this.x - this.width/2 + 5, this.y + 5, 8, 5);
+                ctx.fillRect(this.x + this.width/2 - 13, this.y + 5, 8, 5);
+                ctx.fillStyle = '#ff3333';
+                ctx.fillRect(this.x - this.width/2 + 5, this.y + this.height - 8, 8, 5);
+                ctx.fillRect(this.x + this.width/2 - 13, this.y + this.height - 8, 8, 5);
+                ctx.fillStyle = '#1a1a1a';
+                ctx.fillRect(this.x - this.width/2 + 6, this.y + this.height - 18, 10, 14);
+                ctx.fillRect(this.x + this.width/2 - 16, this.y + this.height - 18, 10, 14);
+            }
+        }
+
+        class Tree {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 25 + 35;
+                this.type = Math.random() > 0.5 ? 'pine' : 'round';
+            }
+
+            update() {
+                this.y += player.speed * 0.08;
+                if (this.y > canvas.height + 100) this.y = -100 - Math.random() * 200;
+            }
+
+            draw() {
+                ctx.fillStyle = '#6B4423';
+                ctx.fillRect(this.x - 6, this.y, 12, this.size * 0.8);
+                if (this.type === 'pine') {
+                    ctx.fillStyle = '#1a5f1a';
+                    ctx.beginPath();
+                    ctx.moveTo(this.x, this.y - this.size * 0.5);
+                    ctx.lineTo(this.x - this.size * 0.4, this.y + this.size * 0.2);
+                    ctx.lineTo(this.x + this.size * 0.4, this.y + this.size * 0.2);
+                    ctx.closePath();
+                    ctx.fill();
+                } else {
+                    ctx.fillStyle = '#2d5016';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y - 5, this.size * 0.7, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        }
+
+        function spawnTrees() {
+            for (let i = 0; i < 20; i++) {
+                trees.push(new Tree(canvas.width * 0.75 + Math.random() * 150, Math.random() * canvas.height - 200));
+            }
+        }
+
+        function spawnTraffic() {
+            if (testMode) return;
+            
+            const now = Date.now();
+            if (now - lastSpawnTime > 2000 + Math.random() * 2000 && !onRamp) {
+                const lane = Math.floor(Math.random() * 4);
+                const speed = 80 + Math.random() * 60;
+                
+                let canSpawn = true;
+                for (let car of traffic) {
+                    if (car.lane === lane && car.y < 200 && car.y > -200) {
+                        canSpawn = false;
+                        break;
+                    }
+                }
+                
+                if (canSpawn) {
+                    traffic.push(new Car(lane, speed));
+                    lastSpawnTime = now;
+                }
+            }
+        }
+
+        function updatePlayer() {
+            if (player.shiftDelay > 0) {
+                player.shiftDelay--;
+                if (player.shiftDelay === 0) player.shifting = false;
+            }
+
+            let acceleration = player.baseAcceleration;
+            if (player.shifting && manualShifting) acceleration *= 0.4;
+            const gearMax = gearRatios[player.gear];
+            
+            if (keys['w'] && player.speed < gearMax) {
+                player.speed = Math.min(player.speed + acceleration, gearMax);
+            }
+            if (keys['s']) {
+                player.speed = Math.max(player.speed - player.deceleration, 0);
+                if (manualShifting && player.speed < gearRatios[player.gear - 1] && player.gear > 1) {
+                }
+            }
+            if (!keys['w'] && !keys['s']) player.speed = Math.max(player.speed - player.friction, 0);
+
+            autoShift();
+
+            if (onRamp) {
+                rampProgress += player.speed * 0.0008;
+                if (rampProgress > 1) {
+                    onRamp = false;
+                    player.lane = 3;
+                }
+                const startX = rampLanes[0];
+                const endX = mainLanes[3];
+                player.x = startX + (endX - startX) * Math.min(rampProgress, 1);
+            } else {
+                if (keys['a'] && player.lane > 0) {
+                    player.lane--;
+                    keys['a'] = false;
+                }
+                if (keys['d'] && player.lane < 3) {
+                    player.lane++;
+                    keys['d'] = false;
+                }
+                const targetX = mainLanes[player.lane];
+                player.x += (targetX - player.x) * 0.08;
+            }
+
+            player.distance += player.speed * 0.016667 * 0.277778;
+            roadOffset += player.speed * 0.1;
+            environmentOffset += player.speed * 0.07;
+        }
+
+        function checkCollision() {
+            for (let car of traffic) {
+                const dx = Math.abs(player.x - car.x);
+                const dy = Math.abs(player.y - car.y);
+                if (dx < (player.width + car.width) / 2.2 && dy < (player.height + car.height) / 2.2) {
+                    gameOver();
+                }
+            }
+        }
+
+        function drawRoad() {
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#87CEEB');
+            gradient.addColorStop(0.6, '#E0F6FF');
+            gradient.addColorStop(1, '#87CEEB');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const mainRoadStart = canvas.width * 0.19;
+            const mainRoadWidth = canvas.width * 0.46;
+
+            ctx.fillStyle = '#2c2c2c';
+            ctx.fillRect(mainRoadStart, 0, mainRoadWidth, canvas.height);
+
+            ctx.strokeStyle = '#C0C0C0';
+            ctx.lineWidth = 8;
+            ctx.beginPath();
+            ctx.moveTo(mainRoadStart, 0);
+            ctx.lineTo(mainRoadStart, canvas.height);
+            ctx.stroke();
+
+            for (let i = 0; i < 10; i++) {
+                const y = i * 30 + (roadOffset % 30) - 30;
+                ctx.fillStyle = '#C0C0C0';
+                ctx.fillRect(mainRoadStart - 4, y, 8, 18);
+            }
+
+            ctx.fillStyle = 'rgba(192, 192, 192, 0.3)';
+            ctx.fillRect(mainRoadStart - canvas.width * 0.08, 0, canvas.width * 0.08, canvas.height);
+
+            ctx.strokeStyle = '#FFD700';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([30, 30]);
+            for (let i = 1; i < 4; i++) {
+                const offset = (roadOffset % 60) - 60;
+                ctx.beginPath();
+                for (let y = offset; y < canvas.height; y += 60) {
+                    const x = mainRoadStart + mainRoadWidth * i / 4;
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x, y + 30);
+                }
+                ctx.stroke();
+            }
+            ctx.setLineDash([]);
+
+            const gradient2 = ctx.createLinearGradient(0, canvas.height * 0.5, 0, canvas.height);
+            gradient2.addColorStop(0, '#0a5f0a');
+            gradient2.addColorStop(1, '#064206');
+            ctx.fillStyle = gradient2;
+            ctx.fillRect(0, 0, mainRoadStart - canvas.width * 0.08, canvas.height);
+
+            const gradient3 = ctx.createLinearGradient(mainRoadStart + mainRoadWidth, 0, canvas.width, 0);
+            gradient3.addColorStop(0, '#1a5f1a');
+            gradient3.addColorStop(1, '#0d4f0d');
+            ctx.fillStyle = gradient3;
+            ctx.fillRect(mainRoadStart + mainRoadWidth, 0, canvas.width, canvas.height);
+        }
+
+        function drawPlayer() {
+            const astonGreen = '#00594F';
+            const darkGreen = '#003D36';
+            const brightGreen = '#00FFCC';
+            const neonGreen = '#39FF14';
+            const black = '#0a0a0a';
+            const darkGrey = '#1a1a1a';
+            const yellow = '#FFD700';
+            
+            // Heckflügel (massiv und breit) - SCHWARZ
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - player.width/2 - 6, player.y + player.height - 20, player.width + 12, 7);
+            ctx.fillRect(player.x - player.width/2 - 8, player.y + player.height - 22, player.width + 16, 2);
+            
+            // Heckflügel Endplatten - SCHWARZ
+            ctx.fillRect(player.x - player.width/2 - 8, player.y + player.height - 32, 3, 12);
+            ctx.fillRect(player.x + player.width/2 + 5, player.y + player.height - 32, 3, 12);
+            
+            // Gelbe Akzente am Heckflügel
+            ctx.fillStyle = yellow;
+            ctx.fillRect(player.x - player.width/2 - 8, player.y + player.height - 23, player.width + 16, 1);
+            
+            // Hinterreifen (massiv und breit) - SCHWARZ (kein Gelb!)
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - player.width/2 - 7, player.y + player.height - 42, 11, 28);
+            ctx.fillRect(player.x + player.width/2 - 4, player.y + player.height - 42, 11, 28);
+            
+            // Motor/Heck Sektion - GRÜN
+            ctx.fillStyle = astonGreen;
+            ctx.fillRect(player.x - player.width/2 + 3, player.y + player.height - 62, player.width - 6, 28);
+            
+            // Schwarze Details am Heck
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - player.width/2 + 8, player.y + player.height - 50, player.width - 16, 4);
+            
+            // Seitenkästen (länger und breiter) - GRÜN mit SCHWARZ
+            ctx.fillStyle = astonGreen;
+            ctx.fillRect(player.x - player.width/2 - 2, player.y + 52, 8, 46);
+            ctx.fillRect(player.x + player.width/2 - 6, player.y + 52, 8, 46);
+            
+            // Schwarze Details Seitenkästen
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - player.width/2 - 2, player.y + 56, 8, 6);
+            ctx.fillRect(player.x + player.width/2 - 6, player.y + 56, 8, 6);
+            
+            // Gelbe Streifen Seitenkästen
+            ctx.fillStyle = yellow;
+            ctx.fillRect(player.x - player.width/2 - 2, player.y + 72, 8, 2);
+            ctx.fillRect(player.x + player.width/2 - 6, player.y + 72, 8, 2);
+            
+            // Hauptchassis - GRÜN
+            ctx.fillStyle = astonGreen;
+            ctx.fillRect(player.x - player.width/2 + 4, player.y + 24, player.width - 8, 68);
+            
+            // Cockpit Öffnung - SCHWARZ
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - player.width/2 + 10, player.y + 38, player.width - 20, 30);
+            
+            // Halo (massiver Überrollbügel) - SCHWARZ mit GELB
+            ctx.strokeStyle = black;
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            ctx.arc(player.x, player.y + 50, 13, Math.PI, 0, false);
+            ctx.stroke();
+            
+            ctx.strokeStyle = yellow;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(player.x, player.y + 50, 13, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Halo Mittelsteg - SCHWARZ
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - 2, player.y + 36, 4, 18);
+            
+            // Airbox (Lufteinlass) - SCHWARZ mit GELB
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - 7, player.y + 30, 14, 10);
+            ctx.fillStyle = yellow;
+            ctx.fillRect(player.x - 5, player.y + 32, 10, 2);
+            
+            // Neon-Grüne Racing Streifen (wie AMR) - LÄNGER
+            ctx.strokeStyle = neonGreen;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(player.x - 6, player.y + 46);
+            ctx.lineTo(player.x - 6, player.y + 86);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(player.x + 6, player.y + 46);
+            ctx.lineTo(player.x + 6, player.y + 86);
+            ctx.stroke();
+            
+            // Gelbe Akzent-Streifen - LÄNGER
+            ctx.strokeStyle = yellow;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(player.x - 9, player.y + 50);
+            ctx.lineTo(player.x - 9, player.y + 82);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(player.x + 9, player.y + 50);
+            ctx.lineTo(player.x + 9, player.y + 82);
+            ctx.stroke();
+            
+            // Nase (noch kleiner und spitzer) - GRÜN
+            ctx.fillStyle = astonGreen;
+            ctx.beginPath();
+            ctx.moveTo(player.x, player.y + 3);
+            ctx.lineTo(player.x - 5, player.y + 14);
+            ctx.lineTo(player.x + 5, player.y + 14);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Schwarzer Akzent Nase
+            ctx.fillStyle = black;
+            ctx.beginPath();
+            ctx.moveTo(player.x, player.y + 5);
+            ctx.lineTo(player.x - 3, player.y + 12);
+            ctx.lineTo(player.x + 3, player.y + 12);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Gelber Streifen Nase
+            ctx.fillStyle = yellow;
+            ctx.fillRect(player.x - 2, player.y + 9, 4, 1);
+            
+            // Verbindung Nase zum Frontflügel - GRÜN
+            ctx.fillStyle = astonGreen;
+            ctx.beginPath();
+            ctx.moveTo(player.x - 5, player.y + 14);
+            ctx.lineTo(player.x - 8, player.y + 18);
+            ctx.lineTo(player.x + 8, player.y + 18);
+            ctx.lineTo(player.x + 5, player.y + 14);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Frontflügel - umgedrehtes V (wie echtes F1) - SCHWARZ mit GELB
+            ctx.fillStyle = black;
+            ctx.beginPath();
+            ctx.moveTo(player.x - player.width/2 - 6, player.y + 18);
+            ctx.lineTo(player.x, player.y + 12);
+            ctx.lineTo(player.x + player.width/2 + 6, player.y + 18);
+            ctx.lineTo(player.x + player.width/2 + 6, player.y + 21);
+            ctx.lineTo(player.x, player.y + 15);
+            ctx.lineTo(player.x - player.width/2 - 6, player.y + 21);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Gelber Akzent am Flügel (umgedrehtes V)
+            ctx.strokeStyle = yellow;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(player.x - player.width/2 - 6, player.y + 17);
+            ctx.lineTo(player.x, player.y + 11);
+            ctx.lineTo(player.x + player.width/2 + 6, player.y + 17);
+            ctx.stroke();
+            
+            // Frontflügel Endplatten
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - player.width/2 - 6, player.y + 14, 2, 9);
+            ctx.fillRect(player.x + player.width/2 + 4, player.y + 14, 2, 9);
+            
+            // Vorderreifen - SCHWARZ
+            ctx.fillStyle = black;
+            ctx.fillRect(player.x - player.width/2 - 4, player.y + 22, 5, 18);
+            ctx.fillRect(player.x + player.width/2 - 1, player.y + 22, 5, 18);
+        }
+
+        function updateSpeedChart() {
+            if (player.speed >= 1) {
+                speedData.push(player.speed);
+                if (speedData.length > maxDataPoints) speedData.shift();
+            }
+
+            const gradient = chartCtx.createLinearGradient(0, 0, 0, chartCanvas.height);
+            gradient.addColorStop(0, '#ffffff');
+            gradient.addColorStop(1, '#f5f5f5');
+            chartCtx.fillStyle = gradient;
+            chartCtx.fillRect(0, 0, chartCanvas.width, chartCanvas.height);
+
+            chartCtx.strokeStyle = '#e0e0e0';
+            chartCtx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                const y = chartCanvas.height - (i * chartCanvas.height / 5);
+                chartCtx.beginPath();
+                chartCtx.moveTo(0, y);
+                chartCtx.lineTo(chartCanvas.width, y);
+                chartCtx.stroke();
+                chartCtx.fillStyle = '#666';
+                chartCtx.font = 'bold 10px Arial';
+                chartCtx.fillText((i * 60) + ' km/h', 5, y - 3);
+            }
+
+            if (speedData.length > 1) {
+                const gradient2 = chartCtx.createLinearGradient(0, 0, 0, chartCanvas.height);
+                gradient2.addColorStop(0, '#ff1744');
+                gradient2.addColorStop(1, '#d32f2f');
+                chartCtx.strokeStyle = gradient2;
+                chartCtx.lineWidth = 2.5;
+                chartCtx.beginPath();
+                
+                const stepX = chartCanvas.width / maxDataPoints;
+                for (let i = 0; i < speedData.length; i++) {
+                    const x = i * stepX;
+                    const y = chartCanvas.height - (speedData[i] / 300 * chartCanvas.height);
+                    if (i === 0) chartCtx.moveTo(x, y);
+                    else chartCtx.lineTo(x, y);
+                }
+                chartCtx.stroke();
+            }
+        }
+
+        function updateDistanceChart() {
+            if (player.speed >= 1) {
+                distanceData.push(player.distance);
+                timeData.push(time * 0.016667);
+                if (distanceData.length > maxDataPoints) {
+                    distanceData.shift();
+                    timeData.shift();
+                }
+            }
+
+            const gradient = distanceChartCtx.createLinearGradient(0, 0, 0, distanceChartCanvas.height);
+            gradient.addColorStop(0, '#ffffff');
+            gradient.addColorStop(1, '#f5f5f5');
+            distanceChartCtx.fillStyle = gradient;
+            distanceChartCtx.fillRect(0, 0, distanceChartCanvas.width, distanceChartCanvas.height);
+
+            distanceChartCtx.strokeStyle = '#e0e0e0';
+            distanceChartCtx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                const y = distanceChartCanvas.height - (i * distanceChartCanvas.height / 5);
+                distanceChartCtx.beginPath();
+                distanceChartCtx.moveTo(0, y);
+                distanceChartCtx.lineTo(distanceChartCanvas.width, y);
+                distanceChartCtx.stroke();
+                
+                if (distanceData.length > 0) {
+                    const maxDist = Math.max(...distanceData);
+                    const labelValue = Math.round((maxDist / 5) * i);
+                    distanceChartCtx.fillStyle = '#666';
+                    distanceChartCtx.font = 'bold 10px Arial';
+                    distanceChartCtx.fillText(labelValue + ' m', 5, y - 3);
+                }
+            }
+
+            if (distanceData.length > 1) {
+                const maxDist = Math.max(...distanceData) || 100;
+                const gradient2 = distanceChartCtx.createLinearGradient(0, 0, 0, distanceChartCanvas.height);
+                gradient2.addColorStop(0, '#2196F3');
+                gradient2.addColorStop(1, '#1976D2');
+                distanceChartCtx.strokeStyle = gradient2;
+                distanceChartCtx.lineWidth = 2.5;
+                distanceChartCtx.beginPath();
+                
+                const stepX = distanceChartCanvas.width / maxDataPoints;
+                for (let i = 0; i < distanceData.length; i++) {
+                    const x = i * stepX;
+                    const y = distanceChartCanvas.height - (distanceData[i] / maxDist * (distanceChartCanvas.height - 20));
+                    if (i === 0) distanceChartCtx.moveTo(x, y);
+                    else distanceChartCtx.lineTo(x, y);
+                }
+                distanceChartCtx.stroke();
+                
+                distanceChartCtx.fillStyle = 'rgba(33, 150, 243, 0.15)';
+                distanceChartCtx.lineTo(distanceChartCanvas.width, distanceChartCanvas.height);
+                distanceChartCtx.lineTo(0, distanceChartCanvas.height);
+                distanceChartCtx.closePath();
+                distanceChartCtx.fill();
+            }
+        }
+
+        function gameOver() {
+            gameRunning = false;
+            document.getElementById('gameOver').style.display = 'block';
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('finalDistance').textContent = Math.floor(player.distance);
+        }
+
+        function restartGame() {
+            gameRunning = true;
+            onRamp = true;
+            rampProgress = 0;
+            score = 0;
+            time = 0;
+            player.speed = 0;
+            player.distance = 0;
+            player.lane = 0;
+            player.gear = 1;
+            player.x = rampLanes[0];
+            traffic.length = 0;
+            speedData = [];
+            distanceData = [];
+            timeData = [];
+            roadOffset = 0;
+            environmentOffset = 0;
+            lastSpawnTime = 0;
+            document.getElementById('gameOver').style.display = 'none';
+            document.getElementById('gear').textContent = '1';
+            gameLoop();
+        }
+
+        function gameLoop() {
+            if (!gameRunning) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawRoad();
+            
+            trees.forEach(tree => {
+                tree.update();
+                tree.draw();
+            });
+
+            updatePlayer();
+            spawnTraffic();
+
+            traffic.forEach((car, index) => {
+                car.update();
+                car.draw();
+                if (car.y > canvas.height + 150) traffic.splice(index, 1);
+            });
+
+            drawPlayer();
+            checkCollision();
+
+            document.getElementById('speed').textContent = Math.floor(player.speed);
+            document.getElementById('score').textContent = score;
+            document.getElementById('distance').textContent = Math.floor(player.distance);
+
+            if (time % 2 === 0) {
+                updateSpeedChart();
+                updateDistanceChart();
+            }
+
+            time++;
+            requestAnimationFrame(gameLoop);
+        }
+    </script>
+</body>
+</html>
