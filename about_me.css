@@ -133,12 +133,12 @@ header {
 
 .main-1 {
   position: relative;
-  height: 350px;
+  height: 400px;
 }
 
 .main-2 {
   position: relative;
-  height: 1000px;
+  height: 1250px;
 }
 
 .main-txt-1 {
@@ -165,7 +165,7 @@ header {
 }
 
 .txt {
-  font-size: 24px;
+  font-size: 30px;
   line-height: 1.5;
   color: rgb(var(--clr-gold));
 }
@@ -192,25 +192,87 @@ header {
                     @Media
 --------------------------------------------------*/
 
-@media (max-width: 800px) {
+@media (max-width: 400px) {
   /*--------------------------------------------------
                         Main
   --------------------------------------------------*/
 
   main {
-    width: 300px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow-x: hidden;
   }
 
-  .main-1 {
-    height: 500px;
-  }
-
+  .main-1,
   .main-2 {
-    height: 550px;
+    height: auto;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .main-txt-1,
+  .main-txt-2 {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .main-txt-1 h1,
+  .main-txt-2 h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
   }
 
   .txt {
-    font-size: 10px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 800px) {
+  /*--------------------------------------------------
+                        Main
+  --------------------------------------------------*/
+
+  main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow-x: hidden;
+  }
+
+  .main-1,
+  .main-2 {
+    height: auto;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .main-txt-1,
+  .main-txt-2 {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .main-txt-1 h1,
+  .main-txt-2 h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .txt {
+    font-size: 20px;
   }
 }
 
@@ -228,7 +290,7 @@ header {
   }
 
   .main-2 {
-    height: 850px;
+    height: 800px;
   }
 
   .txt {
@@ -246,14 +308,14 @@ header {
   }
 
   .main-1 {
-    height: 700px;
+    height: 750px;
   }
 
   .main-2 {
-    height: 850px;
+    height: 950px;
   }
 
   .txt {
-    font-size: 20px;
+    font-size: 24px;
   }
 }

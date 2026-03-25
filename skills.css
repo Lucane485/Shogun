@@ -184,12 +184,13 @@ main {
   grid-template-columns: repeat(2, 200px);
   gap: 30px;
   margin-right: 130px;
+  height: fit-content;
 }
 
 .slot {
   height: 180px;
   width: 180px;
-  padding: 10px;
+  padding: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -202,12 +203,12 @@ main {
 #slot5 {
   height: 170px;
   width: 170px;
-  padding: 15px;
+  padding: 13px;
 }
 
 #slot7 {
-  height: 200px;
-  width: 200px;
+  height: 196px;
+  width: 196px;
   padding: 0px;
 }
 
@@ -273,35 +274,103 @@ main {
                     @Media
 --------------------------------------------------*/
 
-@media (max-width: 800px) {
+@media (max-width: 400px) {
   /*--------------------------------------------------
                         Main
   --------------------------------------------------*/
 
   main {
-    width: 300px;
+    flex-direction: column-reverse;
+    height: 1900px;
+    width: 90%;
+  }
+
+  .main-txt {
+    align-items: flex-end;
+    height: auto;
   }
 
   .txt {
-    width: 400px;
-    font-size: 32px;
+    width: 10%;
+    font-size: 16px;
+  }
+
+  .txt b {
+    font-size: 20px;
+  }
+
+  .main-slot {
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(115px, 120px));
+    gap: 10px;
+    margin-right: 0;
   }
 
   .slot {
-    height: 170px;
-    width: 170px;
-    padding: 8px;
+    height: 90px;
+    width: 90px;
+    padding: 3px;
   }
 
   #slot5 {
-    height: 160px;
-    width: 160px;
-    padding: 13px;
+    height: 80px;
+    width: 80px;
+    padding: 8px;
   }
 
   #slot7 {
-    height: 186px;
-    width: 186px;
+    height: 96px;
+    width: 96px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 800px) {
+  /*--------------------------------------------------
+                        Main
+  --------------------------------------------------*/
+
+  main {
+    flex-direction: column-reverse;
+    height: 1100px;
+    width: 90%;
+  }
+
+  .main-txt {
+    align-items: flex-end;
+    height: auto;
+  }
+
+  .txt {
+    width: 60%;
+    font-size: 20px;
+  }
+
+  .txt b {
+    font-size: 25px;
+  }
+
+  .main-slot {
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(115px, 120px));
+    gap: 10px;
+    margin-right: 0;
+  }
+
+  .slot {
+    height: 110px;
+    width: 110px;
+    padding: 3px;
+  }
+
+  #slot5 {
+    height: 100px;
+    width: 100px;
+    padding: 8px;
+  }
+
+  #slot7 {
+    height: 116px;
+    width: 116px;
   }
 }
 
@@ -315,12 +384,17 @@ main {
   }
 
   .main-txt {
-    width: 300px;
+    max-width: 400px;
+    height: 800px;
   }
 
   .txt {
     width: 260px;
-    font-size: 22px;
+    font-size: 30px;
+  }
+
+  .txt b {
+    font-size: 35px;
   }
 
   .main-slot {
@@ -356,9 +430,18 @@ main {
     width: 1200px;
   }
 
+  .main-txt {
+    max-width: 700px;
+    height: 900px;
+  }
+
   .txt {
-    width: 400px;
-    font-size: 32px;
+    max-width: 400px;
+    font-size: 38px;
+  }
+
+  .txt b {
+    font-size: 45px;
   }
 
   .main-slot {
@@ -368,19 +451,19 @@ main {
   }
 
   .slot {
-    height: 150px;
-    width: 150px;
+    height: 160px;
+    width: 160px;
     padding: 8px;
   }
 
   #slot5 {
-    height: 140px;
-    width: 140px;
-    padding: 13px;
+    height: 152px;
+    width: 152px;
+    padding: 12px;
   }
 
   #slot7 {
-    height: 166px;
-    width: 166px;
+    height: 176px;
+    width: 176px;
   }
 }

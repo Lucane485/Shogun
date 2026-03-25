@@ -209,26 +209,31 @@ arrowInfo.addEventListener("click", function () {
 
 function Info() {
   if (info === 0) {
-    p.innerHTML = `Ich bin <b>Dennis Staral¹</b> und habe diese Internetseite geschaffen. 
-                  Auf dieser Seite können Sie die 8 verschiedenen <b>Icons</b> anklicken, um kleine Infotexte zu erhalten. 
-                  Alle Texte sind unterschiedlich, da sie von Programmen handeln, die <b>ich</b> beherrsche. 
-                    <br><br><br>
-                  <small>
-                    <span style="color:#be0000">¹</span>Wenn du nicht weißt, wer ich bin 
-                      <span class="arrow_right"
-                      id="rrow_right"
-                      style="margin-right: 10px;"
-                    >⤦</span>
-                      <br>
-                    <span class="item"
-                      style="color:#b30000;
-                      cursor:pointer;
-                      margin-left: 5px;"
-                      onclick="window.location.href='about_me.html#main'"
-                      onmouseenter="(exitPlay(), (hoverPower = 9))"
-                      onmouseleave="hoverPower = 0"
-                    >ABOUT ME</span>
-                  </small>`;
+    p.innerHTML = `Ich bin
+  <b>Dennis Staral¹</b>
+  und ich habe diese Internetseite geschaffen. Auf dieser Seite können Sie die 8
+  verschiedenen
+  <b>Icons</b>
+  anklicken, um kleine Infotexte zu erhalten. Alle Texte sind unterschiedlich,
+  da sie von Programmen handeln, die
+  <b>ich</b>
+  beherrsche.
+  <br /><br /><br />
+  <small>
+    <span style="color: #be0000">¹</span>Wenn du nicht weißt, wer ich bin
+    <span class="arrow_right" id="rrow_right" style="margin-right: 10px"
+      >⤦</span
+    >
+    <br />
+    <span
+      class="item"
+      style="color: #b30000; cursor: pointer; margin-left: 5px"
+      onclick="window.location.href = 'about_me.html#main'"
+      onmouseenter="(exitPlay(), (hoverPower = 9))"
+      onmouseleave="hoverPower = 0"
+      >ABOUT ME</span
+    >
+  </small>`;
     arrowInfo.innerHTML = "🢁";
     info = 1;
     console.log("Info Text Opened");

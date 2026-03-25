@@ -339,43 +339,107 @@ a:hover {
   --------------------------------------------------*/
 
   main {
-    width: 400px;
+    width: 95%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 15px 50px 15px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
   }
 
-  /*--------------------------------------------------
-                        Main (Data)
-  --------------------------------------------------*/
-
-  .data-h2 {
-    font-size: 24px;
+  .main-zone {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .data-h3 {
-    font-size: 18px;
+  .data-h2,
+  .stn-h2 {
+    font-size: clamp(26px, 8vw, 40px);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .data-h3,
+  .stn-h3 {
+    font-size: clamp(20px, 6vw, 26px);
+    margin-top: 15px;
+    color: rgb(var(--clr-accent));
+    text-align: center;
   }
 
   .main-txt {
-    font-size: 10px;
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-size: clamp(15px, 4vw, 17px);
+    line-height: 1.6;
+    padding: 20px;
+    word-wrap: break-word;
+    background: rgba(var(--clr-spc-crd), 0.7);
+    border-left: 4px solid rgb(var(--clr-accent));
   }
 
-  /*--------------------------------------------------
-                        Main (Stn)
-  --------------------------------------------------*/
+  .main-txt-crt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
 
   .main-chs {
-    font-size: 10px;
+    font-size: clamp(13px, 4vw, 15px);
+    padding: 10px 20px;
+    border: 1px solid rgb(var(--clr-accent));
+    background: rgba(var(--clr-accent), 0.05);
+    width: fit-content;
   }
 
-  .stn-h2 {
-    font-size: 22px;
+  ul {
+    padding-left: 25px;
+    width: 100%;
+    margin-top: 15px;
   }
 
-  .stn-h3 {
-    font-size: 18px;
+  li {
+    margin-bottom: 12px;
+    font-size: clamp(14px, 3.5vw, 16px);
   }
 
-  h4 {
-    font-size: 14px;
+  .link {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .exit {
+    position: relative;
+    font-size: clamp(20px, 7vw, 28px);
+    padding: 12px 35px;
+    border: 2px solid rgb(var(--clr-accent));
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .main-line {
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(var(--clr-accent)),
+      transparent
+    );
+    margin: 10px auto 25px auto;
   }
 }
 
